@@ -1,0 +1,36 @@
+
+java type tool
+
+Copyright 2024-2xxx joker-pper
+
+Licensed to Apereo under one or more contributor license
+agreements. See the NOTICE file distributed with this work
+for additional information regarding copyright ownership.
+Apereo licenses this file to you under the Apache License,
+Version 2.0 (the "License"); you may not use this file
+except in compliance with the License.  You may obtain a
+copy of the License at the following location:
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+
+This project includes:
+  Hamcrest Core under New BSD License
+  JUnit under Eclipse Public License 1.0
+
+
+This product contains code from the spring-projects spring-framework Project:
+
+https://github.com/spring-projects/spring-framework
+
+This project contains the following code copied from spring-projects spring-framework:
+
+src/main/java/com/github/jokerpper/javatypetool/ParameterizedTypeReference.java
+
+src/main/java/com/github/jokerpper/javatypetool/JavaParameterizedTypeImpl.java
