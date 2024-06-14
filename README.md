@@ -3,6 +3,8 @@
 [![Java support](https://img.shields.io/badge/Java-8+-green?logo=java&logoColor=white)](https://openjdk.java.net/)
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.joker-pper/java-type-tool.svg?label=Maven%20Central)](https://central.sonatype.com/search?q=io.github.joker-pper:java-type-tool)
 [![Last SNAPSHOT](https://img.shields.io/nexus/snapshots/https/s01.oss.sonatype.org/io.github.joker-pper/java-type-tool?label=latest%20snapshot)](https://s01.oss.sonatype.org/content/repositories/snapshots/io/github/joker-pper/java-type-tool/)
+[![Upload coverage reports to Codecov](https://github.com/joker-pper/java-type-tool/actions/workflows/ci.yml/badge.svg)](https://github.com/joker-pper/java-type-tool/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/github/joker-pper/java-type-tool/branch/main/graph/badge.svg?token=SAY24MUY9O)](https://codecov.io/github/joker-pper/java-type-tool)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
     轻量级java type工具类库.
