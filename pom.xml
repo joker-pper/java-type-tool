@@ -6,7 +6,7 @@
 
     <groupId>io.github.joker-pper</groupId>
     <artifactId>java-type-tool</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>java type tool</name>
     <description>java type tool</description>
     <url>https://github.com/joker-pper/java-type-tool</url>

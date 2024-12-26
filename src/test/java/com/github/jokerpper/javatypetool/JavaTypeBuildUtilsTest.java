@@ -17,12 +17,12 @@ public class JavaTypeBuildUtilsTest {
     public void test() {
         //验证List<String>
         Assert.assertEquals(new ParameterizedTypeReference<List<String>>() {
-        }.getType(), JavaTypeBuildUtils.getParameterizedTypeList(String.class));
+        }.getType(), JavaTypeBuildUtils.getParameterizedTypeWithList(String.class));
 
 
         //验证Set<String>
         Assert.assertEquals(new ParameterizedTypeReference<Set<String>>() {
-        }.getType(), JavaTypeBuildUtils.getParameterizedTypeSet(String.class));
+        }.getType(), JavaTypeBuildUtils.getParameterizedTypeWithSet(String.class));
 
 
         //验证Map<String, Object>
@@ -33,18 +33,18 @@ public class JavaTypeBuildUtilsTest {
         //验证List<Map<String, Object>>
 
         Assert.assertEquals(new ParameterizedTypeReference<List<Map<String, Object>>>() {
-        }.getType(), JavaTypeBuildUtils.getParameterizedTypeList(JavaTypeBuildUtils.getParameterizedType(Map.class, new Class[]{String.class, Object.class})));
+        }.getType(), JavaTypeBuildUtils.getParameterizedTypeWithList(JavaTypeBuildUtils.getParameterizedType(Map.class, new Class[]{String.class, Object.class})));
 
 
         //验证Set<Map<String, Object>>
 
         Assert.assertEquals(new ParameterizedTypeReference<Set<Map<String, Object>>>() {
-        }.getType(), JavaTypeBuildUtils.getParameterizedTypeSet(JavaTypeBuildUtils.getParameterizedType(Map.class, new Class[]{String.class, Object.class})));
+        }.getType(), JavaTypeBuildUtils.getParameterizedTypeWithSet(JavaTypeBuildUtils.getParameterizedType(Map.class, new Class[]{String.class, Object.class})));
 
 
         //验证List<Map<String, Map<String, Object>>> -- 复杂
         Assert.assertEquals(new ParameterizedTypeReference<List<Map<String, Map<String, Object>>>>() {
-                }.getType(), JavaTypeBuildUtils.getParameterizedTypeList(
+                }.getType(), JavaTypeBuildUtils.getParameterizedTypeWithList(
                         JavaTypeBuildUtils.getParameterizedType(Map.class, new Type[]
                                 {
                                         String.class,
