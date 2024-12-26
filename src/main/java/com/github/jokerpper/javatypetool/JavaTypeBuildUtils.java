@@ -38,7 +38,7 @@ public class JavaTypeBuildUtils {
      * @param actualClass 泛型所对应的实际class
      * @return type
      */
-    public static Type getParameterizedTypeList(Class<?> actualClass) {
+    public static Type getParameterizedTypeWithList(Class<?> actualClass) {
         return getParameterizedType(List.class, actualClass);
     }
 
@@ -48,7 +48,7 @@ public class JavaTypeBuildUtils {
      * @param actualType 泛型所对应的实际type
      * @return type
      */
-    public static Type getParameterizedTypeList(Type actualType) {
+    public static Type getParameterizedTypeWithList(Type actualType) {
         return getParameterizedType(List.class, new Type[]{actualType});
     }
 
@@ -58,7 +58,7 @@ public class JavaTypeBuildUtils {
      * @param actualClass 泛型所对应的实际class
      * @return type
      */
-    public static Type getParameterizedTypeSet(Class<?> actualClass) {
+    public static Type getParameterizedTypeWithSet(Class<?> actualClass) {
         return getParameterizedType(Set.class, actualClass);
     }
 
@@ -68,7 +68,7 @@ public class JavaTypeBuildUtils {
      * @param actualType 泛型所对应的实际type
      * @return type
      */
-    public static Type getParameterizedTypeSet(Type actualType) {
+    public static Type getParameterizedTypeWithSet(Type actualType) {
         return getParameterizedType(Set.class, new Type[]{actualType});
     }
 

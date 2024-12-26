@@ -35,6 +35,15 @@ new ParameterizedTypeReference<List<String>>(){}.getType();
 JavaTypeBuildUtils 用于获取Type，适用于动态构造的场景。
 
 示例（获取List<String>类型）： 
-JavaTypeBuildUtils.getParameterizedTypeList(String.class);
+JavaTypeBuildUtils.getParameterizedTypeWithList(String.class);
+
+示例（获取Set<String>类型）： 
+JavaTypeBuildUtils.getParameterizedTypeWithSet(String.class);
+
+示例（获取Map<String, Object>类型）： 
+JavaTypeBuildUtils.getParameterizedType(Map.class, new Class[]{String.class, Object.class});
+
+示例（获取List<Map<String, Object>>类型）： 
+JavaTypeBuildUtils.getParameterizedTypeWithList(JavaTypeBuildUtils.getParameterizedType(Map.class, new Class[]{String.class, Object.class}));
 
 ```
