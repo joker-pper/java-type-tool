@@ -30,7 +30,8 @@ jobs:
           java-version: ${{ matrix.java }}
       - name: Run tests and collect coverage with JDK ${{ matrix.java }}
         run: mvn -B test
-      - name: Upload coverage to Codecov
+      - name: Upload coverage to Codecov with JDK ${{ matrix.java }}
+        if: ${{ matrix.java == '8' }}
         uses: codecov/codecov-action@v4.0.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
