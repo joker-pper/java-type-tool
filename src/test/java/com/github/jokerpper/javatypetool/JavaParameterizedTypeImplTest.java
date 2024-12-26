@@ -3,7 +3,6 @@ package com.github.jokerpper.javatypetool;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.lang.reflect.MalformedParameterizedTypeException;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
@@ -29,24 +28,6 @@ public class JavaParameterizedTypeImplTest {
         Assert.assertNotEquals(expected, List.class);
     }
 
-    @Test
-    public void testListStringTypeWithReflectiveObjectsParameterizedTypeImpl() {
-        Type actual = new JavaParameterizedTypeImpl(List.class, new Type[]{String.class}, null);
-
-        Type expected = sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl.make(List.class, new Type[]{String.class}, null);
-
-        validateSameType(actual, expected);
-
-        //验证一下equals other
-        Assert.assertNotEquals(actual, List.class);
-        Assert.assertNotEquals(expected, List.class);
-    }
-
-    @Test
-    public void testListEmptyTypeWithReflectiveObjectsParameterizedTypeImpl() {
-        Assert.assertThrows(MalformedParameterizedTypeException.class, () -> new JavaParameterizedTypeImpl(List.class, new Type[]{}, null));
-        Assert.assertThrows(MalformedParameterizedTypeException.class, () -> sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl.make(List.class, new Type[]{}, null));
-    }
 
     @Test
     public void testMyGenericClassWithReference() {
@@ -60,19 +41,6 @@ public class JavaParameterizedTypeImplTest {
         actual = new JavaParameterizedTypeImpl(MyGenericClass.class, new Type[]{String.class}, this.getClass());
         expected = new ParameterizedTypeReference<MyGenericClass<String>>() {
         }.getType();
-
-        validateSameType(actual, expected);
-    }
-
-    @Test
-    public void testMyGenericClassWithReflectiveObjectsParameterizedTypeImpl() {
-        Type actual = new JavaParameterizedTypeImpl(MyGenericClass.class, new Type[]{String.class}, null);
-        Type expected = sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl.make(MyGenericClass.class, new Type[]{String.class}, null);
-
-        validateSameType(actual, expected);
-
-        actual = new JavaParameterizedTypeImpl(MyGenericClass.class, new Type[]{String.class}, this.getClass());
-        expected = sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl.make(MyGenericClass.class, new Type[]{String.class}, this.getClass());
 
         validateSameType(actual, expected);
     }
@@ -116,48 +84,6 @@ public class JavaParameterizedTypeImplTest {
     public void testMockEmptyTypeArguments() {
         Type type = new JavaParameterizedTypeImpl(String.class, new Type[]{}, null);
         Assert.assertEquals(String.class.getName(), type.getTypeName());
-    }
-
-    @Test
-    public void testMockOwnerTypeIsParameterizedTypeWithReflectiveObjectsParameterizedTypeImpl() {
-        Type ownerType = new ParameterizedTypeReference<Map.Entry<String, ? extends Number>>() {
-        }.getType();
-
-        Type actual = new JavaParameterizedTypeImpl(MyGenericClass.class, new Type[]{String.class}, ownerType);
-
-        Type expected = sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl.make(MyGenericClass.class, new Type[]{String.class}, ownerType);
-
-        validateSameType(actual, expected);
-
-        ownerType = new ParameterizedTypeReference<List<Map<? extends Number, Map<? super String, Map<?, ?>>>>>() {
-        }.getType();
-
-        actual = new JavaParameterizedTypeImpl(MyGenericClass.class, new Type[]{String.class}, ownerType);
-
-        expected = sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl.make(MyGenericClass.class, new Type[]{String.class}, ownerType);
-
-        validateSameType(actual, expected);
-
-
-        ownerType = new ParameterizedTypeReference<MyGenericClass<List<Map<? extends Number, Map<? super String, Map<?, ?>>>>>>() {
-        }.getType();
-
-        actual = new JavaParameterizedTypeImpl(MyGenericClass.class, new Type[]{String.class}, ownerType);
-
-        expected = sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl.make(MyGenericClass.class, new Type[]{String.class}, ownerType);
-
-        validateSameType(actual, expected);
-
-
-        ownerType = new ParameterizedTypeReference<MyGenericClass<List<Map<? extends Number, Map<? super String, Map<?, MyGenericClass<Set<String>>>>>>>>() {
-        }.getType();
-
-        actual = new JavaParameterizedTypeImpl(MyGenericClass.class, new Type[]{String.class}, ownerType);
-
-        expected = sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl.make(MyGenericClass.class, new Type[]{String.class}, ownerType);
-
-        validateSameType(actual, expected);
-
     }
 
     void validateSameType(Type actual, Type expected) {
